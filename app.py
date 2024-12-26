@@ -33,7 +33,6 @@ class SJFScheduler:
         remaining_processes = self.processes.copy()
         
         while remaining_processes or self.queue:
-            #Add all process that have arrived
             arrived = [p for p in remaining_processes if p.arrival_time <= self.current_time]
             for process in arrived:
                 self.queue.append(process)
@@ -60,7 +59,6 @@ class SJFScheduler:
                 
             start_time = self.current_time
             
-            # Execute process until completion
             for _ in range(current_process.remaining_time):
                 self.execution_history.append({
                     "time": self.current_time,
@@ -155,4 +153,4 @@ def sjf_simulate():
     })
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) 
